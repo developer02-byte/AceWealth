@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BarChart3, ShieldCheck, Target, ChevronRight } from "lucide-react";
+import { ArrowRight, BarChart3, ShieldCheck, Target, ChevronRight, Globe, Users } from "lucide-react";
 import logoPng from "@assets/Final_Logo__1772693718308.png";
 
 export default function Home() {
@@ -57,7 +57,7 @@ export default function Home() {
               </motion.h1>
               
               <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl leading-relaxed">
-                As an AMFI-Registered Mutual Fund Distributor, we provide disciplined guidance to help align your investments with your long-term life goals.
+                As an AMFI-Registered Mutual Fund Distributor, we provide disciplined guidance for young and NRI investors to align investments with long-term life goals.
               </motion.p>
               
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
@@ -81,9 +81,21 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative lg:h-[600px] flex items-center justify-center"
             >
-              {/* Premium fintech abstract representation */}
               <div className="relative w-full max-w-lg aspect-square">
-                {/* 3D Glass Card 1 */}
+                {/* 3D Animated Visual Placeholder using Framer Motion */}
+                <motion.div 
+                  animate={{ 
+                    rotate: [0, 360],
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ 
+                    repeat: Infinity, 
+                    duration: 20, 
+                    ease: "linear" 
+                  }}
+                  className="absolute inset-0 rounded-full border-2 border-[#F5A623]/20 blur-sm"
+                />
+                
                 <motion.div 
                   animate={{ y: [0, -15, 0] }}
                   transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
@@ -101,7 +113,6 @@ export default function Home() {
                   </div>
                 </motion.div>
 
-                {/* 3D Glass Card 2 */}
                 <motion.div 
                   animate={{ y: [0, 20, 0] }}
                   transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
@@ -120,14 +131,6 @@ export default function Home() {
                     </div>
                   </div>
                 </motion.div>
-
-                {/* Background decorative image */}
-                <img 
-                  src="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80" 
-                  alt="Abstract Data Concept" 
-                  className="absolute inset-0 w-full h-full object-cover rounded-full opacity-40 mix-blend-screen mask-image-radial blur-[2px]"
-                  style={{ maskImage: 'radial-gradient(circle, black 40%, transparent 70%)', WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 70%)' }}
-                />
               </div>
             </motion.div>
 
@@ -135,7 +138,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section with Background Image */}
+      {/* About Section */}
       <section className="py-24 bg-[#080E20] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 blur-sm -z-10">
           <img 
@@ -146,11 +149,11 @@ export default function Home() {
         </div>
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-white">
               About <span className="text-[#F5A623]">ACE WEALTH</span>
             </h2>
             <p className="text-slate-400 text-lg">
-              We believe in creating enduring value through structural processes, distinct risk management, and long-term vision.
+              Empowering young and NRI investors through structural processes, risk management, and long-term wealth vision.
             </p>
           </div>
 
@@ -167,7 +170,7 @@ export default function Home() {
                 <div className="w-14 h-14 rounded-2xl bg-[#1E40AF]/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="w-7 h-7 text-[#F5A623]" />
                 </div>
-                <h3 className="text-xl font-display font-semibold mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-display font-semibold mb-3 text-white">{feature.title}</h3>
                 <p className="text-slate-400 leading-relaxed">
                   {feature.description}
                 </p>
@@ -177,7 +180,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section with Background Image */}
+      {/* Target Audience Section */}
+      <section className="py-24 bg-[#0B132B] relative">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
+                Expert Planning for <span className="text-[#F5A623]">Global Investors</span>
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-4 items-start">
+                  <div className="w-12 h-12 rounded-xl bg-[#F5A623]/20 flex items-center justify-center shrink-0">
+                    <Globe className="text-[#F5A623] w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-white mb-2">NRI Financial Planning</h4>
+                    <p className="text-slate-400">Tailored mutual fund strategies for NRIs focusing on regulatory compliance and long-term growth.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <div className="w-12 h-12 rounded-xl bg-[#F5A623]/20 flex items-center justify-center shrink-0">
+                    <Users className="text-[#F5A623] w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-white mb-2">Young Professionals</h4>
+                    <p className="text-slate-400">Starting early with disciplined SIPs to leverage the power of compounding for future wealth.</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1573163231162-80df7df33ad2?auto=format&fit=crop&q=80&w=1000" 
+                alt="Global Investors" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] to-transparent opacity-60" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img 
@@ -192,7 +241,7 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#F5A623]/20 rounded-full blur-[80px]" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1E40AF]/30 rounded-full blur-[80px]" />
             
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 relative z-10">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 relative z-10 text-white">
               Ready to take control of your financial journey?
             </h2>
             <p className="text-slate-300 text-lg mb-10 max-w-2xl mx-auto relative z-10">
