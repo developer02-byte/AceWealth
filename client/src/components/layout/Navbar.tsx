@@ -1,8 +1,9 @@
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight, TrendingUp } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import logoPng from "@assets/Final_Logo__1772693718308.png";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -34,17 +35,17 @@ export function Navbar() {
           
           {/* Logo Section */}
           <Link href="/" className="flex flex-col group cursor-pointer">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#F5A623] to-orange-400 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow">
-                <TrendingUp className="text-[#0B132B] w-5 h-5" />
+            <div className="flex items-center gap-3">
+              <img src={logoPng} alt="Ace Wealth Logo" className="h-10 md:h-12 w-auto" />
+              <div className="flex flex-col">
+                <span className="text-xl md:text-2xl font-bold font-display text-white tracking-wide leading-none">
+                  ACE <span className="text-[#F5A623]">WEALTH</span>
+                </span>
+                <span className="text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest mt-1 font-medium leading-none">
+                  AMFI – Registered Mutual Fund Distributor
+                </span>
               </div>
-              <span className="text-2xl font-bold font-display text-white tracking-wide">
-                Ace<span className="text-[#F5A623]">Wealth</span>
-              </span>
             </div>
-            <span className="text-[10px] text-muted-foreground uppercase tracking-widest mt-1 font-medium">
-              AMFI – Registered Mutual Fund Distributor
-            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -66,7 +67,7 @@ export function Navbar() {
               target="_blank" 
               rel="noopener noreferrer"
             >
-              <Button className="bg-[#1E40AF] text-white hover:bg-blue-800 rounded-full px-6 shadow-lg shadow-blue-900/20 group">
+              <Button className="bg-[#F5A623] text-black hover:bg-yellow-500 rounded-full px-6 shadow-lg shadow-yellow-600/20 group font-bold">
                 Member Login
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -111,7 +112,7 @@ export function Navbar() {
                 rel="noopener noreferrer"
                 className="w-full"
               >
-                <Button className="w-full bg-[#1E40AF] text-white hover:bg-blue-800 rounded-lg py-6 mt-2">
+                <Button className="w-full bg-[#F5A623] text-black hover:bg-yellow-500 rounded-lg py-6 mt-2 font-bold">
                   Member Login
                 </Button>
               </a>

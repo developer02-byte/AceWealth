@@ -1,0 +1,105 @@
+Modify the existing website implementation only.
+Do not recreate the project structure and do not repeat work already completed from the original prompt.
+Apply only the following additional changes to the current codebase.
+
+LOGO INTEGRATION
+A company logo has been uploaded to the project. Use this logo as the visual identity of the website.
+
+1. Extract the primary colors from the uploaded logo.
+
+2. Ensure the dominant yellow color from the logo becomes the main accent color across the website.
+
+3. Apply the logo color to:
+
+   * buttons
+   * navigation highlights
+   * call-to-action elements
+   * section accents
+
+4. Ensure the logo is displayed in:
+
+   * the navigation bar
+   * the hero section
+   * the footer
+
+5. Wherever the company name appears, display it as:
+
+ACE WEALTH
+AMFI – REGISTERED MUTUAL FUND DISTRIBUTOR
+
+FINANCE RELATED BACKGROUND IMAGES
+
+Enhance the existing design by introducing finance-related background images.
+
+Add background visuals related to:
+
+• financial growth charts
+• investment dashboards
+• stock market graphs
+• young professionals investing
+• global investors and NRI professionals
+• wealth planning visuals
+
+Design requirements:
+
+• images should appear as subtle background sections
+• add a slight blur or gradient overlay so text remains readable
+• background visuals must match the yellow brand theme
+• maintain a professional fintech appearance
+
+Apply these background images particularly to:
+
+Hero section
+About section
+Call-to-action sections
+
+MEMBER LOGIN BUTTON
+
+Add a “Member Login” button in the top-right corner of the navigation bar.
+
+Button behavior:
+
+When clicked it must redirect to:
+
+https://acewealth.midasx.in/pages/auth/login
+
+The button should visually stand out using the logo yellow accent color.
+
+CLIENT STORIES PAGE CHANGE
+
+If a blog page currently exists, replace it with a page titled:
+
+Client Stories
+
+This page should present investor experiences rather than articles.
+
+Design style:
+
+• story cards
+• simple carousel or sliding layout
+• clean storytelling format
+
+SOCIAL MEDIA LINKS
+
+Add social media icons to the footer and contact section.
+
+Include:
+
+LinkedIn
+Instagram
+Facebook
+YouTube
+Twitter (X)
+
+Icons should include simple hover effects.
+
+COMPLIANCE ADDITION
+
+Ensure the footer includes the following disclaimer:
+
+Mutual Fund investments are subject to market risks. Read all scheme related documents carefully.
+
+IMPORTANT RULE
+
+This instruction set is for **modifying the existing implementation only**.
+Do not rebuild the website or change the existing structure unless necessary to implement the above updates.

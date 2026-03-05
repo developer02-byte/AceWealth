@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BarChart3, ShieldCheck, Target, ChevronRight } from "lucide-react";
+import logoPng from "@assets/Final_Logo__1772693718308.png";
 
 export default function Home() {
   const fadeInUp = {
@@ -18,11 +19,14 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        {/* Abstract Background Elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-          <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#1E40AF]/30 blur-[120px]" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#F5A623]/10 blur-[150px]" />
-          <div className="absolute top-[40%] left-[20%] w-[300px] h-[300px] rounded-full bg-blue-500/10 blur-[100px]" />
+        {/* Finance Background Image with Overlay */}
+        <div className="absolute inset-0 -z-10">
+          <img 
+            src="https://images.unsplash.com/photo-1611974717483-36319d69068b?auto=format&fit=crop&q=80&w=2000" 
+            alt="Financial Charts" 
+            className="w-full h-full object-cover opacity-20 blur-[2px]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B132B] via-[#0B132B]/80 to-[#0B132B]" />
         </div>
 
         <div className="container mx-auto px-4 md:px-6">
@@ -34,16 +38,22 @@ export default function Home() {
               variants={stagger}
               className="max-w-2xl"
             >
-              <motion.div variants={fadeInUp} className="inline-block mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-                <span className="text-xs font-semibold text-[#F5A623] tracking-wider uppercase">
-                  Strategic Wealth Management
-                </span>
+              <motion.div variants={fadeInUp} className="flex items-center gap-4 mb-8">
+                <img src={logoPng} alt="Ace Wealth Logo" className="h-16 md:h-20 w-auto" />
+                <div className="flex flex-col">
+                  <span className="text-3xl md:text-4xl font-bold font-display text-white tracking-wide leading-none">
+                    ACE <span className="text-[#F5A623]">WEALTH</span>
+                  </span>
+                  <span className="text-[10px] md:text-[12px] text-muted-foreground uppercase tracking-widest mt-2 font-medium leading-none">
+                    AMFI – Registered Mutual Fund Distributor
+                  </span>
+                </div>
               </motion.div>
               
-              <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-6">
-                Navigate your <br />
-                <span className="text-gradient">financial future</span> <br />
-                with precision.
+              <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-6 text-white">
+                Helping You Build <br />
+                <span className="text-[#F5A623]">Long Term Wealth</span> <br />
+                Through Mutual Funds.
               </motion.h1>
               
               <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl leading-relaxed">
@@ -112,7 +122,6 @@ export default function Home() {
                 </motion.div>
 
                 {/* Background decorative image */}
-                {/* fintech abstract glowing orb background */}
                 <img 
                   src="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80" 
                   alt="Abstract Data Concept" 
@@ -126,12 +135,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 bg-[#080E20] relative">
+      {/* About Section with Background Image */}
+      <section className="py-24 bg-[#080E20] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 blur-sm -z-10">
+          <img 
+            src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=2000" 
+            alt="Data Analytics" 
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
-              Our Value <span className="text-[#F5A623]">Proposition</span>
+              About <span className="text-[#F5A623]">ACE WEALTH</span>
             </h2>
             <p className="text-slate-400 text-lg">
               We believe in creating enduring value through structural processes, distinct risk management, and long-term vision.
@@ -161,9 +177,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section with Background Image */}
       <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#1E40AF]/10" />
+        <div className="absolute inset-0 -z-10">
+          <img 
+            src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=2000" 
+            alt="Stock Market" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-[#0B132B]/90" />
+        </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="glass-card rounded-[3rem] p-10 md:p-16 text-center max-w-5xl mx-auto border-t-white/20 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#F5A623]/20 rounded-full blur-[80px]" />
@@ -176,7 +199,7 @@ export default function Home() {
               Connect with Parichay Shah today to discuss how structured mutual fund distribution can align with your life goals.
             </p>
             <Link href="/contact">
-              <Button className="h-14 px-10 text-lg bg-white text-[#0B132B] hover:bg-slate-200 rounded-full font-bold shadow-xl transition-all hover:scale-105 relative z-10">
+              <Button className="h-14 px-10 text-lg bg-[#F5A623] text-black hover:bg-yellow-500 rounded-full font-bold shadow-xl transition-all hover:scale-105 relative z-10">
                 Contact Parichay
                 <ChevronRight className="ml-2 w-5 h-5" />
               </Button>

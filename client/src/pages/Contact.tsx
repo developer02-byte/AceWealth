@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { MapPin, Phone, Mail, Send, Loader2 } from "lucide-react";
+import { MapPin, Phone, Mail, Send, Loader2, Linkedin, Twitter, Youtube, Facebook, Instagram } from "lucide-react";
 import { insertContactMessageSchema, type InsertContactMessage } from "@shared/schema";
 import { useCreateContactMessage } from "@/hooks/use-contact";
 
@@ -96,6 +96,28 @@ export default function Contact() {
                       parichay@acewealth.co.in
                     </a>
                   </div>
+                </div>
+              </div>
+
+              {/* Social Media Links */}
+              <div className="mt-12">
+                <h4 className="text-white font-semibold mb-6">Connect with us</h4>
+                <div className="flex gap-4">
+                  <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
+                    <Twitter className="w-5 h-5" />
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
+                    <Youtube className="w-5 h-5" />
+                  </a>
                 </div>
               </div>
             </motion.div>

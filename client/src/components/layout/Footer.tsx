@@ -1,5 +1,6 @@
 import { Link } from "wouter";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, ShieldAlert, TrendingUp } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Facebook, Instagram, ShieldAlert } from "lucide-react";
+import logoPng from "@assets/Final_Logo__1772693718308.png";
 
 export function Footer() {
   return (
@@ -10,17 +11,17 @@ export function Footer() {
           {/* Brand & Disclaimer */}
           <div className="md:col-span-5 space-y-6">
             <Link href="/" className="flex flex-col group cursor-pointer inline-block">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#F5A623] to-orange-400 flex items-center justify-center">
-                  <TrendingUp className="text-[#0B132B] w-5 h-5" />
+              <div className="flex items-center gap-3">
+                <img src={logoPng} alt="Ace Wealth Logo" className="h-10 w-auto" />
+                <div className="flex flex-col">
+                  <span className="text-2xl font-bold font-display text-white tracking-wide leading-none">
+                    ACE <span className="text-[#F5A623]">WEALTH</span>
+                  </span>
+                  <span className="text-[10px] text-muted-foreground uppercase tracking-widest mt-1 font-medium leading-none">
+                    AMFI – Registered Mutual Fund Distributor
+                  </span>
                 </div>
-                <span className="text-2xl font-bold font-display text-white tracking-wide">
-                  Ace<span className="text-[#F5A623]">Wealth</span>
-                </span>
               </div>
-              <span className="text-[10px] text-muted-foreground uppercase tracking-widest mt-1 font-medium">
-                AMFI – Registered Mutual Fund Distributor
-              </span>
             </Link>
             
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
@@ -28,14 +29,20 @@ export function Footer() {
             </p>
 
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
                 <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
+                <Youtube className="w-5 h-5" />
               </a>
             </div>
           </div>
