@@ -12,7 +12,7 @@ export default {
       },
       colors: {
         brand: {
-          yellow: "#F5A623",
+          yellow: "#F9A825",
           blue: "#1E40AF",
           dark: "#0B132B"
         },

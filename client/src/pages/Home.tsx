@@ -1,10 +1,39 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BarChart3, ShieldCheck, Target, ChevronRight, Globe, Users } from "lucide-react";
 import logoPng from "@assets/Final_Logo__1772693718308.png";
+import { blogApi, reviewApi, BlogPost, Testimonial } from "@/lib/api";
+import { BlogCard } from "@/components/BlogCard";
+import { TestimonialCard } from "@/components/TestimonialCard";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Home() {
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [carouselApi, setCarouselApi] = useState<any>();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    blogApi.getAll().then(data => setBlogs(data.slice(0, 3))).catch(console.error);
+    reviewApi.getAll().then(data => setTestimonials(data)).catch(console.error); // Show all for slider
+  }, []);
+
+  // Re-initialize carousel when dynamic slides are loaded so loop works properly
+  useEffect(() => {
+    if (carouselApi && testimonials.length > 0) {
+      carouselApi.reInit();
+    }
+  }, [carouselApi, testimonials]);
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -42,7 +71,7 @@ export default function Home() {
                 <img src={logoPng} alt="Ace Wealth Logo" className="h-16 md:h-20 w-auto" />
                 <div className="flex flex-col">
                   <span className="text-3xl md:text-4xl font-bold font-display text-white tracking-wide leading-none">
-                    ACE <span className="text-[#F5A623]">WEALTH</span>
+                    ACE <span className="text-[#F9A825]">WEALTH</span>
                   </span>
                   <span className="text-[10px] md:text-[12px] text-muted-foreground uppercase tracking-widest mt-2 font-medium leading-none">
                     AMFI – Registered Mutual Fund Distributor
@@ -52,7 +81,7 @@ export default function Home() {
               
               <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-6 text-white">
                 Helping You Build <br />
-                <span className="text-[#F5A623]">Long Term Wealth</span> <br />
+                <span className="text-[#F9A825]">Long Term Wealth</span> <br />
                 Through Mutual Funds.
               </motion.h1>
               
@@ -61,12 +90,16 @@ export default function Home() {
               </motion.p>
               
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
-                <Link href="/contact">
-                  <Button className="h-14 px-8 text-base bg-[#F5A623] text-black hover:bg-yellow-500 rounded-full font-semibold shadow-[0_0_20px_rgba(245,166,35,0.3)] hover:shadow-[0_0_30px_rgba(245,166,35,0.5)] transition-all">
+                <a
+                  href="https://acewealth.midasx.in/pages/auth/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="h-14 px-8 text-base bg-[#F9A825] text-black hover:bg-[#F7961A] rounded-full font-semibold shadow-[0_0_20px_rgba(249,168,37,0.3)] hover:shadow-[0_0_30px_rgba(249,168,37,0.5)] transition-all">
                     Start Your Journey
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
-                </Link>
+                </a>
                 <Link href="/stories">
                   <Button variant="outline" className="h-14 px-8 text-base bg-white/5 border-white/10 hover:bg-white/10 rounded-full font-semibold text-white backdrop-blur-md">
                     Read Client Stories
@@ -93,7 +126,7 @@ export default function Home() {
                     duration: 20, 
                     ease: "linear" 
                   }}
-                  className="absolute inset-0 rounded-full border-2 border-[#F5A623]/20 blur-sm"
+                  className="absolute inset-0 rounded-full border-2 border-[#F9A825]/20 blur-sm"
                 />
                 
                 <motion.div 
@@ -127,7 +160,7 @@ export default function Home() {
                     <p className="text-sm text-slate-400 mb-1">Focus</p>
                     <p className="text-2xl font-display font-semibold text-white">Goal Alignment</p>
                     <div className="w-full bg-white/10 h-1.5 rounded-full mt-4 overflow-hidden">
-                      <div className="w-3/4 h-full bg-gradient-to-r from-[#F5A623] to-yellow-300 rounded-full"></div>
+                      <div className="w-3/4 h-full bg-gradient-to-r from-[#F9A825] to-[#FDB528] rounded-full"></div>
                     </div>
                   </div>
                 </motion.div>
@@ -139,7 +172,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-24 bg-[#080E20] relative overflow-hidden">
+      <section className="py-24 bg-[#1E40AF]/10 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 blur-sm -z-10">
           <img 
             src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=2000" 
@@ -150,7 +183,7 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-white">
-              About <span className="text-[#F5A623]">ACE WEALTH</span>
+              About <span className="text-[#F9A825]">ACE WEALTH</span>
             </h2>
             <p className="text-slate-400 text-lg">
               Empowering young and NRI investors through structural processes, risk management, and long-term wealth vision.
@@ -168,7 +201,7 @@ export default function Home() {
                 className="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group"
               >
                 <div className="w-14 h-14 rounded-2xl bg-[#1E40AF]/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-7 h-7 text-[#F5A623]" />
+                  <feature.icon className="w-7 h-7 text-[#F9A825]" />
                 </div>
                 <h3 className="text-xl font-display font-semibold mb-3 text-white">{feature.title}</h3>
                 <p className="text-slate-400 leading-relaxed">
@@ -191,12 +224,12 @@ export default function Home() {
               className="space-y-8"
             >
               <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-                Expert Planning for <span className="text-[#F5A623]">Global Investors</span>
+                Expert Planning for <span className="text-[#F9A825]">Global Investors</span>
               </h2>
               <div className="space-y-6">
                 <div className="flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-xl bg-[#F5A623]/20 flex items-center justify-center shrink-0">
-                    <Globe className="text-[#F5A623] w-6 h-6" />
+                  <div className="w-12 h-12 rounded-xl bg-[#F9A825]/20 flex items-center justify-center shrink-0">
+                    <Globe className="text-[#F9A825] w-6 h-6" />
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white mb-2">NRI Financial Planning</h4>
@@ -204,8 +237,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-xl bg-[#F5A623]/20 flex items-center justify-center shrink-0">
-                    <Users className="text-[#F5A623] w-6 h-6" />
+                  <div className="w-12 h-12 rounded-xl bg-[#F9A825]/20 flex items-center justify-center shrink-0">
+                    <Users className="text-[#F9A825] w-6 h-6" />
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white mb-2">Young Professionals</h4>
@@ -216,12 +249,97 @@ export default function Home() {
             </motion.div>
             <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1573163231162-80df7df33ad2?auto=format&fit=crop&q=80&w=1000" 
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80" 
                 alt="Global Investors" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] to-transparent opacity-60" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Blogs Section Placeholder */}
+      <section className="py-24 bg-[#1E40AF]/10 relative">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-white">
+              Latest <span className="text-[#F9A825]">Insights</span>
+            </h2>
+            <p className="text-slate-400 text-lg">
+              Explore our latest thoughts on market updates, financial strategies, and wealth creation.
+            </p>
+          </div>
+          <div className={`grid gap-8 ${
+            blogs.length === 1 ? 'grid-cols-1 max-w-md mx-auto' : 
+            blogs.length === 2 ? 'grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto' : 
+            'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+          }`}>
+            {blogs.map((blog, idx) => (
+              <motion.div
+                key={blog.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="h-full"
+              >
+                <BlogCard blog={blog} />
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link href="/blog">
+              <Button className="h-12 px-8 text-base bg-white/10 text-white hover:bg-white/20 rounded-full font-semibold transition-all">
+                View All Articles
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section Placeholder */}
+      <section className="py-24 bg-[#0B132B] relative">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-white">
+              Client <span className="text-[#F9A825]">Stories</span>
+            </h2>
+            <p className="text-slate-400 text-lg">
+              See what our clients say about their financial journey with Ace Wealth.
+            </p>
+          </div>
+          <div className="w-full max-w-6xl mx-auto px-10 relative">
+            <Carousel
+              opts={{ align: "start", loop: true }}
+              plugins={[
+                Autoplay({
+                  delay: 3000,
+                  stopOnInteraction: false,
+                  stopOnMouseEnter: true,
+                }),
+              ]}
+              className="w-full"
+              setApi={setCarouselApi}
+            >
+              <CarouselContent className="-ml-4 py-4">
+                {testimonials.map((t, idx) => (
+                  <CarouselItem key={t.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="h-full flex flex-col"
+                    >
+                      <TestimonialCard testimonial={t} />
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex bg-white/10 text-white hover:bg-white/20 border-white/20" />
+              <CarouselNext className="hidden md:flex bg-white/10 text-white hover:bg-white/20 border-white/20" />
+            </Carousel>
           </div>
         </div>
       </section>
@@ -238,7 +356,7 @@ export default function Home() {
         </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="glass-card rounded-[3rem] p-10 md:p-16 text-center max-w-5xl mx-auto border-t-white/20 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#F5A623]/20 rounded-full blur-[80px]" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#F9A825]/20 rounded-full blur-[80px]" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1E40AF]/30 rounded-full blur-[80px]" />
             
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 relative z-10 text-white">
@@ -248,8 +366,8 @@ export default function Home() {
               Connect with Parichay Shah today to discuss how structured mutual fund distribution can align with your life goals.
             </p>
             <Link href="/contact">
-              <Button className="h-14 px-10 text-lg bg-[#F5A623] text-black hover:bg-yellow-500 rounded-full font-bold shadow-xl transition-all hover:scale-105 relative z-10">
-                Contact Parichay
+              <Button className="h-14 px-10 text-lg bg-[#F9A825] text-black hover:bg-[#F7961A] rounded-full font-bold shadow-xl transition-all hover:scale-105 relative z-10">
+                Contact Us
                 <ChevronRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>

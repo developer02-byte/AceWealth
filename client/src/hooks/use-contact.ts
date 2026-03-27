@@ -8,19 +8,22 @@ export function useCreateContactMessage() {
 
   return useMutation({
     mutationFn: async (data: ContactMessageInput) => {
-      const res = await fetch(api.contact.create.path, {
-        method: api.contact.create.method,
+      const res = await fetch('/acewealth/demo/3/api/send_enquiry.php', {
+        method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
       if (!res.ok) {
-        let errorMessage = "Failed to send message.";
+        let errorMessage = `Failed to send message (HTTP ${res.status}).`;
         try {
           const errorData = await res.json();
           errorMessage = errorData.message || errorMessage;
         } catch {
-          // ignore parse error
+          // If it fails to parse JSON, it's likely a WAF block (HTML page)
+          if (res.status === 409) {
+            errorMessage = "Server Firewall Blocked Request (HTTP 409). Contact your host to whitelist this.";
+          }
         }
         throw new Error(errorMessage);
       }

@@ -9,7 +9,8 @@
   --font-display: 'Outfit', sans-serif;
 
   /* Premium Dark Fintech Theme */
-  --background: 226 59% 10%; /* #0B132B */
+  --background: 226 59% 10%;
+  /* #0B132B */
   --foreground: 210 40% 98%;
 
   --card: 226 50% 14%;
@@ -19,17 +20,20 @@
   --popover-foreground: 210 40% 98%;
 
   /* Premium Yellow */
-  --primary: 38 90% 55%; /* #F5A623 */
-  --primary-foreground: 226 59% 10%; /* Dark text on yellow */
+  --primary: 40 98% 56%;
+  /* #F9A825 */
+  --primary-foreground: 226 59% 10%;
+  /* Dark text on yellow */
 
   /* Dark Blue Accent */
-  --secondary: 226 71% 40%; /* #1E40AF */
+  --secondary: 226 71% 40%;
+  /* #1E40AF */
   --secondary-foreground: 210 40% 98%;
 
   --muted: 226 40% 20%;
   --muted-foreground: 215 20.2% 65.1%;
 
-  --accent: 38 90% 55%;
+  --accent: 40 98% 56%;
   --accent-foreground: 226 59% 10%;
 
   --destructive: 0 62.8% 30.6%;
@@ -37,7 +41,7 @@
 
   --border: 226 40% 25%;
   --input: 226 40% 25%;
-  --ring: 38 90% 55%;
+  --ring: 40 98% 56%;
 
   --radius: 0.75rem;
 }
@@ -50,9 +54,15 @@
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground;
     font-family: var(--font-sans);
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
     @apply tracking-tight;
   }
@@ -62,16 +72,267 @@
   .glass-card {
     @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl;
   }
-  
+
   .glass-nav {
     @apply bg-[#0B132B]/80 backdrop-blur-md border-b border-white/10;
   }
-  
+
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#F5A623] to-yellow-200;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#F9A825] to-[#FDB528];
   }
 
   .text-gradient-blue {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-[#1E40AF];
   }
+}
+
+/* ===================== THEME 2: LIGHT ===================== */
+/* Light Mode Overrides */
+html.light-mode {
+  --background: 210 40% 98%;
+  --foreground: 226 59% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 226 59% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 226 59% 10%;
+}
+
+html.light-mode body {
+  background-color: #FFF9E6;
+}
+
+html.light-mode .text-white {
+  color: #0f172a !important;
+}
+
+html.light-mode .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light-mode .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light-mode .text-slate-500 {
+  color: #64748b !important;
+}
+
+html.light-mode .bg-\[\#0B132B\] {
+  background-color: #FFF9E6 !important;
+}
+
+html.light-mode .bg-\[\#080E20\] {
+  background-color: #FFF3C4 !important;
+}
+
+html.light-mode .bg-\[\#050914\] {
+  background-color: #FFECAB !important;
+}
+
+html.light-mode .bg-\[\#0B132B\]\/90 {
+  background-color: rgba(255, 249, 230, 0.9) !important;
+}
+
+html.light-mode .bg-\[\#0B132B\]\/80 {
+  background-color: rgba(255, 249, 230, 0.8) !important;
+}
+
+html.light-mode .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+html.light-mode .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light-mode .hover\:bg-white\/10:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light-mode .hover\:bg-white\/5:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light-mode .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light-mode .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light-mode .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html.light-mode .border-white\/30 {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+html.light-mode .border-t-white\/20 {
+  border-top-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html.light-mode .border-l-white\/20 {
+  border-left-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html.light-mode .glass-card {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light-mode .glass-nav {
+  background-color: rgba(255, 249, 230, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light-mode .bg-black\/20 {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  color: #0f172a !important;
+}
+
+/* Gradients */
+html.light-mode .from-\[\#0B132B\] {
+  --tw-gradient-from: #FFF9E6 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(255, 249, 230, 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+html.light-mode .via-\[\#0B132B\]\/80 {
+  --tw-gradient-via: rgba(255, 249, 230, 0.8) var(--tw-gradient-via-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to) !important;
+}
+
+html.light-mode .to-\[\#0B132B\] {
+  --tw-gradient-to: #FFF9E6 var(--tw-gradient-to-position) !important;
+}
+
+/* ===================== THEME 3: STRICT YELLOW ===================== */
+/* Brand Yellow background: #F9A825, strict Black/White typography */
+html.yellow-mode {
+  --background: 40 98% 56%;
+  --foreground: 0 0% 100%;
+  --card: 40 98% 56%;
+  --card-foreground: 0 0% 100%;
+  --popover: 40 98% 56%;
+  --popover-foreground: 0 0% 100%;
+  --muted: 40 98% 46%;
+  --muted-foreground: 0 0% 100%;
+  --border: 0 0% 100%;
+  --primary: 0 0% 0%; /* Black for primary accents like buttons to contrast yellow */
+  --primary-foreground: 0 0% 100%;
+  --ring: 0 0% 100%;
+}
+
+html.yellow-mode body {
+  background-color: #F9A825 !important;
+  color: #FFFFFF !important;
+}
+
+/* Make Headings Black for strong contrast */
+html.yellow-mode h1,
+html.yellow-mode h2,
+html.yellow-mode h3,
+html.yellow-mode h4,
+html.yellow-mode h5,
+html.yellow-mode h6,
+html.yellow-mode .text-foreground {
+  color: #000000 !important;
+}
+
+/* Enforce strict White typography for body text, paragraphs, and links */
+html.yellow-mode .text-slate-300,
+html.yellow-mode .text-slate-400,
+html.yellow-mode .text-slate-500,
+html.yellow-mode .text-muted-foreground,
+html.yellow-mode .text-gray-300,
+html.yellow-mode .text-gray-400,
+html.yellow-mode .text-gray-500,
+html.yellow-mode .text-blue-400,
+html.yellow-mode .text-blue-500,
+html.yellow-mode .text-\[\#F5A623\],
+html.yellow-mode .text-gradient,
+html.yellow-mode .text-gradient-blue,
+html.yellow-mode p,
+html.yellow-mode span,
+html.yellow-mode a {
+  color: #FFFFFF !important;
+}
+
+/* Kill text gradients */
+html.yellow-mode .text-gradient,
+html.yellow-mode .text-gradient-blue {
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+  text-fill-color: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-image: none !important;
+}
+
+/* Keep black text black and make active nav links black */
+html.yellow-mode .text-black,
+html.yellow-mode .bg-\[\#F5A623\] *,
+html.yellow-mode .bg-\[\#F9A825\] *,
+html.yellow-mode .bg-\[\#FBAB1C\] *,
+html.yellow-mode .bg-primary *,
+html.yellow-mode .active-nav-link {
+  color: #000000 !important;
+}
+
+/* Force icons to white except when black is explicitly used */
+html.yellow-mode svg:not(.text-black) {
+  color: #FFFFFF !important;
+}
+
+/* Update Container Backgrounds to match Yellow or contrast with Black */
+html.yellow-mode .bg-\[\#0B132B\],
+html.yellow-mode .bg-\[\#080E20\],
+html.yellow-mode .bg-\[\#050914\],
+html.yellow-mode .bg-\[\#0B132B\]\/90,
+html.yellow-mode .bg-\[\#0B132B\]\/80 {
+  background-color: #F9A825 !important;
+}
+
+html.yellow-mode .bg-black\/20 {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Buttons and accents - Make them White with Black text */
+html.yellow-mode .bg-\[\#F5A623\],
+html.yellow-mode .bg-\[\#F9A825\],
+html.yellow-mode .bg-\[\#FBAB1C\],
+html.yellow-mode .bg-primary {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
+/* Cards & Nav */
+html.yellow-mode .glass-card {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: #FFFFFF !important;
+}
+html.yellow-mode .glass-nav {
+  background-color: rgba(249, 168, 37, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+html.yellow-mode .border-white\/10,
+html.yellow-mode .border-white\/20,
+html.yellow-mode .border-white\/5 {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Gradients overriding for sections */
+html.yellow-mode .from-\[\#0B132B\] {
+  --tw-gradient-from: #F9A825 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(249, 168, 37, 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+html.yellow-mode .via-\[\#0B132B\]\/80 {
+  --tw-gradient-via: #F9A825 var(--tw-gradient-via-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to) !important;
+}
+html.yellow-mode .to-\[\#0B132B\] {
+  --tw-gradient-to: #F9A825 var(--tw-gradient-to-position) !important;
 }
