@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { MapPin, Phone, Mail, Send, Loader2, Linkedin, Youtube, Facebook, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Send, Loader2, Linkedin, Instagram } from "lucide-react";
 import { insertContactMessageSchema, type InsertContactMessage } from "@shared/schema";
 import { useCreateContactMessage } from "@/hooks/use-contact";
 
@@ -118,17 +118,11 @@ export default function Contact() {
                   <a href="https://www.linkedin.com/in/parichay-shah-18721439" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
                     <Linkedin className="w-5 h-5" />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
+                  <a href="https://x.com/ace_wealth" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
                   </a>
-                  <a href="https://www.instagram.com/parichay.shah?igsh=MTdqODV6a2RsamxqdQ==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
+                  <a href="https://www.instagram.com/ace_wealth2021?igsh=ZzNpZmtyN3ZlNmQy" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
                     <Instagram className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
-                    <Facebook className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
-                    <Youtube className="w-5 h-5" />
                   </a>
                   <a href="https://www.google.com/maps/place/Ace+Wealth/@23.0108471,72.5284587,17z/data=!3m1!4b1!4m6!3m5!1s0x395e84dc3fffffff:0xe97e3dc978557a7a!8m2!3d23.0108422!4d72.5310336!16s%2Fg%2F1tdr6l3c?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110" title="Office Location">
                     <MapPin className="w-5 h-5" />
@@ -230,7 +224,7 @@ export default function Contact() {
                     <Button
                       type="submit"
                       disabled={isPending}
-                      className="w-full h-14 bg-[#FBAB1C] hover:bg-amber-500 text-black font-bold text-lg rounded-xl shadow-[0_0_15px_rgba(251,171,28,0.2)] transition-all"
+                      className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg rounded-xl shadow-xl transition-all"
                     >
                       {isPending ? (
                         <>

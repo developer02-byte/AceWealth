@@ -1,7 +1,7 @@
 // Central API client — PHP + MySQL backend
-// All endpoints resolve to /acewealth/demo/3/api/*.php
+// All endpoints resolve to /acewealth/demo/4/api/*.php
 
-const API_BASE = '/acewealth/demo/3/api';
+const API_BASE = '/acewealth/demo/4/api';
 
 // ─── Internal Request Helper ──────────────────────────────────────────────────
 async function request<T>(
@@ -89,7 +89,7 @@ export const uploadImage = async (file: File): Promise<string> => {
   }
 
   const data = await res.json();
-  return data.url as string;   // e.g. /acewealth/demo/3/uploads/img_xxx.jpg
+  return data.url as string;   // e.g. /acewealth/demo/4/uploads/img_xxx.jpg
 };
 
 // ─── Blog API ─────────────────────────────────────────────────────────────────

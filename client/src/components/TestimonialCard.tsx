@@ -1,4 +1,4 @@
-import { Testimonial } from "@/lib/mockDb";
+import { Testimonial } from "@/lib/api";
 
 export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (

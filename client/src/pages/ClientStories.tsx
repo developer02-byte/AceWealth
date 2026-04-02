@@ -122,8 +122,8 @@ export default function ClientStories() {
               </CarouselContent>
 
               <div className="flex items-center justify-center gap-4 mt-12">
-                <CarouselPrevious className="static transform-none bg-white/10 hover:bg-[#F5A623] hover:text-[#0B132B] border-none text-white w-12 h-12" />
-                <CarouselNext className="static transform-none bg-white/10 hover:bg-[#F5A623] hover:text-[#0B132B] border-none text-white w-12 h-12" />
+                <CarouselPrevious className="static transform-none bg-white/10 hover:bg-primary hover:text-primary-foreground border-none text-white w-12 h-12" />
+                <CarouselNext className="static transform-none bg-white/10 hover:bg-primary hover:text-primary-foreground border-none text-white w-12 h-12" />
               </div>
             </Carousel>
           </motion.div>

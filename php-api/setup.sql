@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `blogs` (
   `title`      VARCHAR(500) NOT NULL,
   `excerpt`    TEXT         NOT NULL,
   `content`    LONGTEXT     NOT NULL,
-  `image`      TEXT         DEFAULT NULL COMMENT 'Relative URL: /acewealth/demo/3/uploads/filename.jpg',
+  `image`      TEXT         DEFAULT NULL COMMENT 'Relative URL: /acewealth/demo/4/uploads/filename.jpg',
   `date`       VARCHAR(100) NOT NULL DEFAULT '',
   `created_at` DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

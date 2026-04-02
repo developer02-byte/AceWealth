@@ -36,8 +36,8 @@ $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
 $filename = uniqid('img_', true) . '.' . strtolower($ext);
 
 // Resolve upload directory relative to this file's location
-// When deployed: /public_html/acewealth/demo/3/api/upload.php
-// Uploads go to: /public_html/acewealth/demo/3/uploads/
+// When deployed: /public_html/acewealth/demo/4/api/upload.php
+// Uploads go to: /public_html/acewealth/demo/4/uploads/
 $uploadDir = __DIR__ . '/../uploads/';
 
 if (!is_dir($uploadDir)) {
@@ -51,9 +51,9 @@ if (!move_uploaded_file($file['tmp_name'], $uploadPath)) {
 }
 
 // Return the public URL path (relative to site root)
-// Assumes deployment in /acewealth/demo/3/
+// Assumes deployment in /acewealth/demo/4/
 json_ok([
     'success' => true,
-    'url'     => '/acewealth/demo/3/uploads/' . $filename,
+    'url'     => '/acewealth/demo/4/uploads/' . $filename,
     'filename' => $filename,
 ]);

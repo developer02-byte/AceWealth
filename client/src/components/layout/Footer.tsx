@@ -1,6 +1,6 @@
 import { Link } from "wouter";
-import { Mail, Phone, MapPin, Linkedin, Youtube, Facebook, Instagram, ShieldAlert } from "lucide-react";
-import logoPng from "@assets/Final_Logo__1772693718308.png";
+import { Mail, Phone, MapPin, Linkedin, Instagram, ShieldAlert, Download } from "lucide-react";
+import logoPng from "@assets/Logo.png";
 
 export function Footer() {
   return (
@@ -32,17 +32,11 @@ export function Footer() {
               <a href="https://www.linkedin.com/in/parichay-shah-18721439" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
+              <a href="https://x.com/ace_wealth" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
               </a>
-              <a href="https://www.instagram.com/parichay.shah?igsh=MTdqODV6a2RsamxqdQ==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
+              <a href="https://www.instagram.com/ace_wealth2021?igsh=ZzNpZmtyN3ZlNmQy" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110">
-                <Youtube className="w-5 h-5" />
               </a>
               <a href="https://www.google.com/maps/place/Ace+Wealth/@23.0108471,72.5284587,17z/data=!3m1!4b1!4m6!3m5!1s0x395e84dc3fffffff:0xe97e3dc978557a7a!8m2!3d23.0108422!4d72.5310336!16s%2Fg%2F1tdr6l3c?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#F5A623] hover:text-[#0B132B] transition-all hover:scale-110" title="Office Location">
                 <MapPin className="w-5 h-5" />
@@ -64,14 +58,27 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Legal & Disclosure */}
-          <div className="lg:col-span-3">
-            <h4 className="text-white font-display font-semibold mb-6">Legal & Disclosure</h4>
+          {/* Column 3: Downloads */}
+          <div className="lg:col-span-2">
+            <h4 className="text-white font-display font-semibold mb-6">Downloads</h4>
             <ul className="space-y-4 text-sm text-slate-400">
               <li><Link href="/commission-disclosure" className="hover:text-[#FBAB1C] transition-colors">Commission Disclosure</Link></li>
+              <li><a href="/acewealth/demo/4/downloads/ckyc-individual-form.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />CKYC - Individual</a></li>
+              <li><a href="/acewealth/demo/4/downloads/ckyc-non-individual-form.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />CKYC - Non-Individual</a></li>
+              <li><a href="/acewealth/demo/4/downloads/kyc-fatca-form-cams.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />KYC FATCA (CAMS)</a></li>
+              <li><a href="/acewealth/demo/4/downloads/kyc-fatca-form-kfintech.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />KYC FATCA (KFintech)</a></li>
+              <li><a href="/acewealth/demo/4/downloads/transaction-slip-arn-122475.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />Txn Slip - ARN 122475</a></li>
+              <li><a href="/acewealth/demo/4/downloads/transaction-slip-arn-51565.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />Txn Slip - ARN 51565</a></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Legal */}
+          <div className="lg:col-span-1">
+            <h4 className="text-white font-display font-semibold mb-6">Legal</h4>
+            <ul className="space-y-4 text-sm text-slate-400">
               <li><Link href="/disclaimer" className="hover:text-[#FBAB1C] transition-colors">Disclaimer</Link></li>
-              <li><Link href="/privacy" className="hover:text-[#FBAB1C] transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-[#FBAB1C] transition-colors">Terms of Service</Link></li>
+              <li><Link href="/privacy" className="hover:text-[#FBAB1C] transition-colors">Privacy</Link></li>
+              <li><Link href="/terms" className="hover:text-[#FBAB1C] transition-colors">Terms</Link></li>
             </ul>
           </div>
 
@@ -102,10 +109,10 @@ export function Footer() {
         </div>
 
         {/* Mandatory AMFI Disclaimer */}
-        <div className="bg-[#050914] border border-[#1E40AF]/20 rounded-xl p-6 mb-8 flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
-          <ShieldAlert className="w-8 h-8 text-[#FBAB1C] shrink-0" />
-          <p className="text-sm text-slate-300 leading-relaxed font-medium">
-            <span className="text-white font-bold">Important Disclaimer:</span> Investment in Mutual Funds and Securities are subject to market risk associated with investment capital and Debt market instruments. The data and information herein provided is believed to be reliable but ACE WEALTH ('The Company') does not warrant for its accuracy and completeness. The company is not guaranteeing or assuring the performance of Mutual Funds or other securities about which the report is presented. Further ACE WEALTH shall not be liable for any loss to investors from the investments made on the basis of proposal (s) given by it. [E & O E].
+        <div className="amfi-disclaimer rounded-xl p-6 mb-8 flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+          <ShieldAlert className="w-8 h-8 shrink-0 amfi-disclaimer-icon" />
+          <p className="text-sm leading-relaxed font-medium amfi-disclaimer-text">
+            <span className="font-bold amfi-disclaimer-title">Important Disclaimer:</span> Investment in Mutual Funds and Securities are subject to market risk associated with investment capital and Debt market instruments. The data and information herein provided is believed to be reliable but ACE WEALTH ('The Company') does not warrant for its accuracy and completeness. The company is not guaranteeing or assuring the performance of Mutual Funds or other securities about which the report is presented. Further ACE WEALTH shall not be liable for any loss to investors from the investments made on the basis of proposal (s) given by it. [E & O E].
           </p>
         </div>
 

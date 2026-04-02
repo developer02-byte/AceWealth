@@ -1,0 +1,14 @@
+# Block access to sensitive file types
+<FilesMatch "\.(sql|md|env|ini|log|sh|bak|config|example)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block access to config directories
+    RewriteRule ^secure_config/ - [F,L]
+</IfModule>
+
+Options -Indexes

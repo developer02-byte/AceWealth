@@ -1,4 +1,4 @@
-import { BlogPost } from "@/lib/mockDb";
+import { BlogPost } from "@/lib/api";
 import { Link } from "wouter";
 import { ArrowRight, ImageOff } from "lucide-react";
 import { useState } from "react";

@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Target, Heart, TrendingUp, Users, ChevronRight } from "lucide-react";
+import parichayImg from "@assets/parichay_shah.jpeg";
 
 export default function About() {
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function About() {
             </motion.h1>
             
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              AMFI-Registered Mutual Fund Distributor dedicated to empowering investors through disciplined financial planning and wealth management.
+              AMFI-Registered Mutual Fund Distributor delivering bespoke financial solutions to investors since 2007.
             </motion.p>
           </motion.div>
         </div>
@@ -52,13 +53,6 @@ export default function About() {
 
       {/* Company Introduction Section */}
       <section className="py-24 bg-[#1E40AF]/10 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.08] mix-blend-luminosity z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1579027989536-b7b38f175db7?auto=format&fit=crop&q=80&w=2000" 
-            alt="Company Culture" 
-            className="w-full h-full object-cover"
-          />
-        </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -74,20 +68,23 @@ export default function About() {
                   </h2>
                   <div className="space-y-6 text-slate-300 text-lg leading-relaxed">
                     <p>
-                      ACE Wealth is an AMFI-Registered Mutual Fund Distributor committed to helping young investors and NRIs build long-term wealth through structured, disciplined financial planning.
+                      ACE WEALTH is an AMFI-registered mutual fund distributor and investment firm delivering bespoke financial solutions to investors since 2007.
                     </p>
                     <p>
-                      We believe that wealth creation isn't about chasing short-term returns or complex products. Instead, it's about understanding your unique life goals and creating a tailored investment strategy that aligns with them.
+                      We have navigated both bullish and bearish market trends over the past many years, evolving into a stronger, more mature organization. We understand that financial needs are unique — no one-size-fits-all solution exists.
                     </p>
                     <p>
-                      Our approach is rooted in transparency, process discipline, and genuine client commitment. We partner with you on your financial journey, helping you navigate market cycles and stay focused on what matters most.
+                      ACE WEALTH offers a perfect blend of personalized services and innovative, exclusive products tailored to your investment goals. Whether you are in India or abroad, we partner with you as your reliable mutual fund distributor.
+                    </p>
+                    <p>
+                      As distributors for all major Mutual Fund Asset Management Companies, leading Alternative Investment Firms, and Portfolio Management Services in India, we also offer GIFT City products from top Asset Management Companies registered there.
                     </p>
                   </div>
                 </div>
 
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] md:aspect-auto md:h-full max-h-[600px] border border-white/10">
                   <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+                    src={parichayImg}
                     alt="Parichay Shah" 
                     className="w-full h-full object-cover"
                   />
@@ -118,7 +115,7 @@ export default function About() {
               </div>
               <h3 className="text-2xl font-display font-bold mb-4 text-white">Our Vision</h3>
               <p className="text-slate-300 leading-relaxed">
-                To empower every investor with clear, structured financial guidance that transforms them into confident, long-term wealth builders aligned with their life's aspirations.
+                To be the most trusted financial partner for every Investor — at home or abroad — empowering them to build lasting wealth, achieve lifelong security, and make confident financial decisions at every stage of life.
               </p>
             </motion.div>
 
@@ -133,7 +130,7 @@ export default function About() {
               </div>
               <h3 className="text-2xl font-display font-bold mb-4 text-white">Our Mission</h3>
               <p className="text-slate-300 leading-relaxed">
-                To deliver disciplined, transparent, and personalized wealth management solutions that bridge the gap between financial dreams and reality through structured investing.
+                Deliver personalized, research-driven financial strategies through expert mutual fund distribution, optimal asset allocation, and unwavering trust — ensuring superior value, regardless of market conditions or location.
               </p>
             </motion.div>
           </div>
@@ -142,20 +139,13 @@ export default function About() {
 
       {/* Our Approach Section */}
       <section className="py-24 bg-[#1E40AF]/10 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.08] mix-blend-luminosity z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=2000" 
-            alt="Data Analytics" 
-            className="w-full h-full object-cover"
-          />
-        </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-white">
-              Our <span className="text-[#FBAB1C]">Approach</span>
+              Our Service <span className="text-[#FBAB1C]">Dynamics</span>
             </h2>
             <p className="text-slate-400 text-lg">
-              We follow a disciplined, process-driven methodology rooted in proven investment principles.
+              With our long-term presence in the industry and comprehensive domain expertise, we bring you more than just financial guidance.
             </p>
           </div>
 
@@ -279,7 +269,7 @@ export default function About() {
               Join hundreds of satisfied investors who have aligned their wealth with their life goals.
             </p>
             <Link href="/contact">
-              <Button className="h-14 px-10 text-lg bg-[#FBAB1C] text-black hover:bg-amber-500 rounded-full font-bold shadow-xl transition-all hover:scale-105 relative z-10">
+              <Button className="h-14 px-10 text-lg bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-bold shadow-xl transition-all hover:scale-105 relative z-10">
                 Contact Us
                 <ChevronRight className="ml-2 w-5 h-5" />
               </Button>
@@ -293,27 +283,27 @@ export default function About() {
 
 const approaches = [
   {
-    title: "Goal Alignment",
-    description: "We start by understanding your unique life goals and financial aspirations before recommending any investment."
+    title: "Access to Local Knowledge & Network",
+    description: "With our long-term presence in the industry and a well-established network, we bring you proximity to opportunity by understanding your goals and behavior."
   },
   {
-    title: "Risk Assessment",
-    description: "We evaluate your risk tolerance and create strategies that balance growth with protection."
+    title: "Ensure Value Creation",
+    description: "We prioritize strategies that drive sustainable growth, optimizing returns while safeguarding your wealth."
   },
   {
-    title: "Structured Planning",
-    description: "We develop comprehensive financial plans with clear milestones and regular review cycles."
+    title: "Services Regardless of Location",
+    description: "Whether you are based in India or living abroad, our service reaches you seamlessly — same quality, same commitment, no geographic compromise."
   },
   {
-    title: "Disciplined Execution",
-    description: "We execute strategies systematically, staying focused on long-term objectives regardless of market noise."
+    title: "Customized Solutions",
+    description: "No one-size-fits-all: Tailored plans designed around your unique goals, risk profile, and timeline."
   },
   {
-    title: "Transparent Communication",
-    description: "We keep you informed with regular updates and clear explanations of your portfolio performance."
+    title: "Across Asset Classes",
+    description: "Diversify effortlessly with equities, debt, hybrids, alternatives, and more for balanced portfolios."
   },
   {
-    title: "Continuous Support",
-    description: "We provide ongoing guidance and adjust strategies as your life circumstances and goals evolve."
+    title: "Comprehensive Domain Expertise",
+    description: "Backed by over two decades in the mutual fund and financial industry, we bring seasoned judgment that navigates both bull runs and market downturns with confidence."
   }
 ];

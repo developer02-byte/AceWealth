@@ -1,6 +1,9 @@
 node_modules
 dist
 .DS_Store
-server/public
 vite.config.ts.*
 *.tar.gz
+
+# Never commit real credentials — only .example templates are tracked
+php-api/secure_config/db_config.php
+php-api/secure_config/mail_config.php

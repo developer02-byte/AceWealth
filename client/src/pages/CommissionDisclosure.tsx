@@ -129,13 +129,13 @@ export default function CommissionDisclosure() {
               <Button
                 onClick={downloadCSV}
                 variant="outline"
-                className="gap-2 border-primary text-primary hover:bg-primary hover:text-black font-semibold"
+                className="gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold"
               >
                 <Download className="w-4 h-4" /> Download CSV
               </Button>
               <Button
                 onClick={downloadPDF}
-                className="gap-2 bg-primary text-black hover:bg-primary/90 font-semibold"
+                className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
               >
                 <Download className="w-4 h-4" /> Download PDF
               </Button>

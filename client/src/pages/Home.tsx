@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BarChart3, ShieldCheck, Target, ChevronRight, Globe, Users } from "lucide-react";
-import logoPng from "@assets/Final_Logo__1772693718308.png";
+import logoPng from "@assets/Logo.png";
 import { blogApi, reviewApi, BlogPost, Testimonial } from "@/lib/api";
 import { BlogCard } from "@/components/BlogCard";
 import { TestimonialCard } from "@/components/TestimonialCard";
@@ -86,7 +86,7 @@ export default function Home() {
               </motion.h1>
               
               <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl leading-relaxed">
-                As an AMFI-Registered Mutual Fund Distributor, we provide disciplined guidance for young and NRI investors to align investments with long-term life goals.
+                Since 2007, we've been delivering bespoke financial solutions across Mutual Funds, PMS, AIFs, GIFT City, and more — whether you are in India or abroad.
               </motion.p>
               
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
@@ -95,7 +95,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button className="h-14 px-8 text-base bg-[#F9A825] text-black hover:bg-[#F7961A] rounded-full font-semibold shadow-[0_0_20px_rgba(249,168,37,0.3)] hover:shadow-[0_0_30px_rgba(249,168,37,0.5)] transition-all">
+                  <Button className="h-14 px-8 text-base bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-semibold shadow-xl transition-all">
                     Start Your Journey
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
@@ -186,7 +186,7 @@ export default function Home() {
               About <span className="text-[#F9A825]">ACE WEALTH</span>
             </h2>
             <p className="text-slate-400 text-lg">
-              Empowering young and NRI investors through structural processes, risk management, and long-term wealth vision.
+              Delivering bespoke financial solutions since 2007, with expertise across all major AMCs, AIFs, PMS, and GIFT City products.
             </p>
           </div>
 
@@ -366,7 +366,7 @@ export default function Home() {
               Connect with Parichay Shah today to discuss how structured mutual fund distribution can align with your life goals.
             </p>
             <Link href="/contact">
-              <Button className="h-14 px-10 text-lg bg-[#F9A825] text-black hover:bg-[#F7961A] rounded-full font-bold shadow-xl transition-all hover:scale-105 relative z-10">
+              <Button className="h-14 px-10 text-lg bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-bold shadow-xl transition-all hover:scale-105 relative z-10">
                 Contact Us
                 <ChevronRight className="ml-2 w-5 h-5" />
               </Button>

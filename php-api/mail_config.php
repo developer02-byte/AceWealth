@@ -1,16 +1,29 @@
 <?php
 // ─── SMTP Configuration ───────────────────────────────────────────────────────
-// Fill in your SMTP credentials below.
-// IMPORTANT: Do NOT upload this file anywhere public. Keep it server-side only.
+// Credentials loaded from secure_config OUTSIDE public_html (not web-accessible).
+// Server path:  /home4/wmdtest/secure_config/mail_config.php
+// Local path:   php-api/secure_config/mail_config.php (dev fallback)
 
-define('SMTP_HOST',       'smtp.gmail.com');      // Gmail SMTP server
-define('SMTP_PORT',       587);                    // TLS port
-define('SMTP_ENCRYPTION', 'tls');                  // 'tls' or 'ssl'
-define('SMTP_USERNAME',   'developer02@technodoc.in'); // Your Gmail address
-define('SMTP_PASSWORD',   'hjfo hmqv rcmw ytht');    // Gmail App Password (NOT your login password)
+$secure_mail = '/home4/wmdtest/secure_config/mail_config.php';
+$local_mail  = __DIR__ . '/secure_config/mail_config.php';
 
-// ─── Email Settings ───────────────────────────────────────────────────────────
-define('MAIL_FROM_NAME',  'Ace Wealth Website');         // Sender name shown in inbox
-define('MAIL_FROM_EMAIL', 'developer02@technodoc.in');       // Must match SMTP_USERNAME for Gmail
-define('MAIL_TO_EMAIL',   'developer02@technodoc.in');       // Email where you want to RECEIVE messages
-define('MAIL_TO_NAME',    'Ace Wealth');                 // Recipient display name
+if (file_exists($secure_mail)) {
+    require_once $secure_mail;
+} elseif (file_exists($local_mail)) {
+    require_once $local_mail;
+} else {
+    http_response_code(500);
+    echo json_encode(['error' => 'Mail configuration not found.']);
+    exit;
+}
+
+define('SMTP_HOST',       $smtp_host);
+define('SMTP_PORT',       $smtp_port);
+define('SMTP_ENCRYPTION', $smtp_encryption);
+define('SMTP_USERNAME',   $smtp_username);
+define('SMTP_PASSWORD',   $smtp_password);
+
+define('MAIL_FROM_NAME',  $mail_from_name);
+define('MAIL_FROM_EMAIL', $mail_from_email);
+define('MAIL_TO_EMAIL',   $mail_to_email);
+define('MAIL_TO_NAME',    $mail_to_name);

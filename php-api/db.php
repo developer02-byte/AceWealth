@@ -1,16 +1,31 @@
 <?php
 // ─── Database Configuration ───────────────────────────────────────────────────
-// UPDATE these values after creating your MySQL database in cPanel
+// Credentials loaded from secure_config OUTSIDE public_html (not web-accessible).
+// Server path:  /home4/wmdtest/secure_config/db_config.php
+// Local path:   php-api/secure_config/db_config.php (dev fallback)
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'wmdtest_AceWealth');
-define('DB_USER', 'wmdtest_AceWealth');
-define('DB_PASS', 'AceWealth@12345');
+$secure_config = '/home4/wmdtest/secure_config/db_config.php';
+$local_config  = __DIR__ . '/secure_config/db_config.php';
+
+if (file_exists($secure_config)) {
+    require_once $secure_config;
+} elseif (file_exists($local_config)) {
+    require_once $local_config;
+} else {
+    http_response_code(500);
+    echo json_encode(['error' => 'Database configuration not found.']);
+    exit;
+}
+
+define('DB_HOST',    $db_host);
+define('DB_NAME',    $db_name);
+define('DB_USER',    $db_username);
+define('DB_PASS',    $db_password);
 define('DB_CHARSET', 'utf8mb4');
 
 // ─── Auth Token Secret ────────────────────────────────────────────────────────
 // Change this to any long random string — never expose it publicly
-define('AUTH_SECRET', 'ACE_WEALTH_SECRET_KEY_2025_CHANGE_ME');
+define('AUTH_SECRET', $auth_secret ?? 'ACE_WEALTH_SECRET_KEY_2025_CHANGE_ME');
 
 // ─── CORS Headers ─────────────────────────────────────────────────────────────
 header('Access-Control-Allow-Origin: *');

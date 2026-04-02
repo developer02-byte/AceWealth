@@ -8,7 +8,7 @@ export function useCreateContactMessage() {
 
   return useMutation({
     mutationFn: async (data: ContactMessageInput) => {
-      const res = await fetch('/acewealth/demo/3/api/send_enquiry.php', {
+      const res = await fetch('/acewealth/demo/4/api/send_enquiry.php', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
