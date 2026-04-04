@@ -66,44 +66,40 @@ if (strlen($message) > 5000) {
 try {
     $mail = new PHPMailer(true);
 
-    // Server settings
+    // Read .env file for environment variables
+    $envFile = __DIR__ . '/../.env';
+    $env = [];
+    if (file_exists($envFile)) {
+        $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($lines as $line) {
+            if (strpos(trim($line), '#') === 0) continue;
+            if (strpos($line, '=') !== false) {
+                list($key, $val) = explode('=', $line, 2);
+                $env[trim($key)] = trim($val);
+            }
+        }
+    }
+    
+    $emailUser = $env['EMAIL_USER'] ?? '';
+    $emailPass = $env['EMAIL_PASS'] ?? '';
+
+    // Server settings configured for Gmail SMTP
     $mail->isSMTP();
-    $mail->Host       = SMTP_HOST;
+    $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = SMTP_USERNAME;
-    $mail->Password   = SMTP_PASSWORD;
-    $mail->SMTPSecure = SMTP_ENCRYPTION;
-    $mail->Port       = SMTP_PORT;
+    $mail->Username   = $emailUser;
+    $mail->Password   = $emailPass;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // secure: true
+    $mail->Port       = 465;
 
     // Sender & Recipient
-    $mail->setFrom(MAIL_FROM_EMAIL, MAIL_FROM_NAME);
-    $mail->addAddress(MAIL_TO_EMAIL, MAIL_TO_NAME);
-    $mail->addReplyTo($email, $name); // Reply goes directly to the enquirer
+    $mail->setFrom($emailUser, 'Contact Test');
+    $mail->addAddress($emailUser, 'Contact Test');
 
     // Email content
-    $mail->isHTML(true);
-    $mail->Subject = "New Contact Enquiry from Ace Wealth: " . htmlspecialchars($name);
-    $mail->Body    = "
-        <html>
-        <body style='font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;'>
-            <div style='background: #0B132B; padding: 24px; border-radius: 8px 8px 0 0;'>
-                <h2 style='color: #FBAB1C; margin: 0;'>New Enquiry — Ace Wealth</h2>
-            </div>
-            <div style='background: #f9f9f9; padding: 24px; border-radius: 0 0 8px 8px;'>
-                <table style='width: 100%; border-collapse: collapse;'>
-                    <tr><td style='padding: 8px 0; font-weight: bold; width: 120px;'>Name:</td><td>" . htmlspecialchars($name) . "</td></tr>
-                    <tr><td style='padding: 8px 0; font-weight: bold;'>Email:</td><td><a href='mailto:" . htmlspecialchars($email) . "'>" . htmlspecialchars($email) . "</a></td></tr>
-                    <tr><td style='padding: 8px 0; font-weight: bold;'>Phone:</td><td>" . (empty($phone) ? 'Not provided' : htmlspecialchars($phone)) . "</td></tr>
-                </table>
-                <hr style='border: none; border-top: 1px solid #ddd; margin: 16px 0;'>
-                <p style='font-weight: bold; margin-bottom: 8px;'>Message:</p>
-                <p style='line-height: 1.7; white-space: pre-wrap;'>" . htmlspecialchars($message) . "</p>
-            </div>
-            <p style='font-size: 11px; color: #aaa; text-align: center; margin-top: 12px;'>Sent from acewealth.co.in contact form</p>
-        </body>
-        </html>
-    ";
-    $mail->AltBody = "Name: $name\nEmail: $email\nPhone: $phone\n\nMessage:\n$message";
+    $mail->isHTML(false);
+    $mail->Subject = "New Contact Form Submission";
+    $mail->Body    = "Name: $name\nEmail: $email\nMessage: $message";
 
     $mail->send();
 
@@ -111,6 +107,7 @@ try {
     echo json_encode(["success" => true, "message" => "Message sent successfully!"]);
 
 } catch (Exception $e) {
+    error_log("Email sending failed: {$mail->ErrorInfo}");
     http_response_code(500);
     echo json_encode(["success" => false, "message" => "Could not send message. Please try again later."]);
 }
