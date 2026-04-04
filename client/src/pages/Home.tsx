@@ -1,0 +1,410 @@
+import { motion } from "framer-motion";
+import { Link } from "wouter";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, BarChart3, ShieldCheck, Target, ChevronRight, Globe, Users } from "lucide-react";
+import logoPng from "@assets/Logo.png";
+import { blogApi, reviewApi, BlogPost, Testimonial } from "@/lib/api";
+import { BlogCard } from "@/components/BlogCard";
+import { TestimonialCard } from "@/components/TestimonialCard";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+export default function Home() {
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [carouselApi, setCarouselApi] = useState<any>();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    blogApi.getAll().then(data => setBlogs(data.slice(0, 3))).catch(console.error);
+    reviewApi.getAll().then(data => setTestimonials(data)).catch(console.error); // Show all for slider
+  }, []);
+
+  // Re-initialize carousel when dynamic slides are loaded so loop works properly
+  useEffect(() => {
+    if (carouselApi && testimonials.length > 0) {
+      carouselApi.reInit();
+    }
+  }, [carouselApi, testimonials]);
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
+  const stagger = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+  };
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        {/* Finance Background Image with Overlay */}
+        <div className="absolute inset-0 -z-10">
+          <img 
+            src="https://images.unsplash.com/photo-1611974717483-36319d69068b?auto=format&fit=crop&q=80&w=2000" 
+            alt="Financial Charts" 
+            className="w-full h-full object-cover opacity-20 blur-[2px]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B132B] via-[#0B132B]/80 to-[#0B132B]" />
+        </div>
+
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <motion.div 
+              initial="hidden"
+              animate="visible"
+              variants={stagger}
+              className="max-w-2xl"
+            >
+              <motion.div variants={fadeInUp} className="flex items-center gap-4 mb-8">
+                <img src={logoPng} alt="Ace Wealth Logo" className="h-16 md:h-20 w-auto" />
+                <div className="flex flex-col">
+                  <span className="text-3xl md:text-4xl font-bold font-display text-white tracking-wide leading-none">
+                    ACE <span className="text-[#F9A825]">WEALTH</span>
+                  </span>
+                  <span className="text-[10px] md:text-[12px] text-muted-foreground uppercase tracking-widest mt-2 font-medium leading-none">
+                    AMFI – Registered Mutual Fund Distributor
+                  </span>
+                </div>
+              </motion.div>
+              
+              <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-6 text-white">
+                Helping You Build <br />
+                <span className="text-[#F9A825]">Long Term Wealth</span> <br />
+                Through Mutual Funds.
+              </motion.h1>
+              
+              <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl leading-relaxed">
+                Since 2007, we've been delivering bespoke financial solutions across Mutual Funds, PMS, AIFs, GIFT City, and more — whether you are in India or abroad.
+              </motion.p>
+              
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
+                <a
+                  href="https://acewealth.midasx.in/pages/auth/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="h-14 px-8 text-base bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-semibold shadow-xl transition-all">
+                    Start Your Journey
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </a>
+                <Link href="/stories">
+                  <Button variant="outline" className="h-14 px-8 text-base bg-white/5 border-white/10 hover:bg-white/10 rounded-full font-semibold text-white backdrop-blur-md">
+                    Read Client Stories
+                  </Button>
+                </Link>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative lg:h-[600px] flex items-center justify-center"
+            >
+              <div className="relative w-full max-w-lg aspect-square">
+                {/* 3D Animated Visual Placeholder using Framer Motion */}
+                <motion.div 
+                  animate={{ 
+                    rotate: [0, 360],
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ 
+                    repeat: Infinity, 
+                    duration: 20, 
+                    ease: "linear" 
+                  }}
+                  className="absolute inset-0 rounded-full border-2 border-[#F9A825]/20 blur-sm"
+                />
+                
+                <motion.div 
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                  className="absolute top-10 right-10 w-64 h-40 glass-card rounded-2xl p-6 z-20 flex flex-col justify-between border-t-white/20 border-l-white/20"
+                >
+                  <div className="flex justify-between items-start">
+                    <div className="w-10 h-10 rounded-full bg-[#1E40AF]/40 flex items-center justify-center">
+                      <BarChart3 className="text-blue-400 w-5 h-5" />
+                    </div>
+                    <span className="text-xs text-emerald-400 font-medium bg-emerald-400/10 px-2 py-1 rounded">Disciplined</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-400 mb-1">Approach</p>
+                    <p className="text-xl font-display font-semibold text-white">Process Driven</p>
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  animate={{ y: [0, 20, 0] }}
+                  transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
+                  className="absolute bottom-20 left-0 w-72 h-48 glass-card rounded-2xl p-6 z-30 flex flex-col justify-between border-t-white/20 border-l-white/20"
+                >
+                  <div className="flex justify-between items-start">
+                    <div className="w-10 h-10 rounded-full bg-[#F5A623]/20 flex items-center justify-center">
+                      <Target className="text-[#F5A623] w-5 h-5" />
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-400 mb-1">Focus</p>
+                    <p className="text-2xl font-display font-semibold text-white">Goal Alignment</p>
+                    <div className="w-full bg-white/10 h-1.5 rounded-full mt-4 overflow-hidden">
+                      <div className="w-3/4 h-full bg-gradient-to-r from-[#F9A825] to-[#FDB528] rounded-full"></div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-24 bg-[#1E40AF]/10 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 blur-sm -z-10">
+          <img 
+            src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=2000" 
+            alt="Data Analytics" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-white">
+              About <span className="text-[#F9A825]">ACE WEALTH</span>
+            </h2>
+            <p className="text-slate-400 text-lg">
+              Delivering bespoke financial solutions since 2007, with expertise across all major AMCs, AIFs, PMS, and GIFT City products.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {features.map((feature, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-[#1E40AF]/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-7 h-7 text-[#F9A825]" />
+                </div>
+                <h3 className="text-xl font-display font-semibold mb-3 text-white">{feature.title}</h3>
+                <p className="text-slate-400 leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Target Audience Section */}
+      <section className="py-24 bg-[#0B132B] relative">
+        <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
+                Expert Guidance for <span className="text-[#F9A825]">Global Investors</span>
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="glass-card p-8 rounded-3xl border border-white/10 hover:border-[#F9A825]/30 transition-colors group"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-[#F9A825]/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <ShieldCheck className="text-[#F9A825] w-7 h-7" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-3">Retired Individuals</h4>
+                <p className="text-slate-400 leading-relaxed">
+                  Secure income and stability by focusing on preserving wealth and generating consistent returns through suitable mutual fund selections aligned with post-retirement needs.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="glass-card p-8 rounded-3xl border border-white/10 hover:border-[#F9A825]/30 transition-colors group"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-[#F9A825]/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Users className="text-[#F9A825] w-7 h-7" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-3">Young Parents</h4>
+                <p className="text-slate-400 leading-relaxed">
+                  Build a strong financial foundation for your child’s future and family goals with disciplined and long-term investment approaches.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="glass-card p-8 rounded-3xl border border-white/10 hover:border-[#F9A825]/30 transition-colors group"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-[#F9A825]/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <BarChart3 className="text-[#F9A825] w-7 h-7" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-3">Wealth Creation</h4>
+                <p className="text-slate-400 leading-relaxed">
+                  Grow your wealth over time with structured investment approaches focused on long-term capital appreciation and financial independence.
+                </p>
+              </motion.div>
+            </div>
+        </div>
+      </section>
+
+      {/* Blogs Section Placeholder */}
+      <section className="py-24 bg-[#1E40AF]/10 relative">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-white">
+              Latest <span className="text-[#F9A825]">Insights</span>
+            </h2>
+            <p className="text-slate-400 text-lg">
+              Explore our latest thoughts on market updates, financial strategies, and wealth creation.
+            </p>
+          </div>
+          <div className={`grid gap-8 ${
+            blogs.length === 1 ? 'grid-cols-1 max-w-md mx-auto' : 
+            blogs.length === 2 ? 'grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto' : 
+            'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+          }`}>
+            {blogs.map((blog, idx) => (
+              <motion.div
+                key={blog.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="h-full"
+              >
+                <BlogCard blog={blog} />
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link href="/blog">
+              <Button className="h-12 px-8 text-base bg-white/10 text-white hover:bg-white/20 rounded-full font-semibold transition-all">
+                View All Articles
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section Placeholder */}
+      <section className="py-24 bg-[#0B132B] relative">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-white">
+              Client <span className="text-[#F9A825]">Stories</span>
+            </h2>
+            <p className="text-slate-400 text-lg">
+              See what our clients say about their financial journey with Ace Wealth.
+            </p>
+          </div>
+          <div className="w-full max-w-6xl mx-auto px-10 relative">
+            <Carousel
+              opts={{ align: "start", loop: true }}
+              plugins={[
+                Autoplay({
+                  delay: 3000,
+                  stopOnInteraction: false,
+                  stopOnMouseEnter: true,
+                }),
+              ]}
+              className="w-full"
+              setApi={setCarouselApi}
+            >
+              <CarouselContent className="-ml-4 py-4">
+                {testimonials.map((t, idx) => (
+                  <CarouselItem key={t.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="h-full flex flex-col"
+                    >
+                      <TestimonialCard testimonial={t} />
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex bg-white/10 text-white hover:bg-white/20 border-white/20" />
+              <CarouselNext className="hidden md:flex bg-white/10 text-white hover:bg-white/20 border-white/20" />
+            </Carousel>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img 
+            src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=2000" 
+            alt="Stock Market" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-[#0B132B]/90" />
+        </div>
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="glass-card rounded-[3rem] p-10 md:p-16 text-center max-w-5xl mx-auto border-t-white/20 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#F9A825]/20 rounded-full blur-[80px]" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1E40AF]/30 rounded-full blur-[80px]" />
+            
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 relative z-10 text-white">
+              Ready to take control of your financial journey?
+            </h2>
+            <p className="text-slate-300 text-lg mb-10 max-w-2xl mx-auto relative z-10">
+              Connect with Parichay Shah today to discuss how structured mutual fund distribution can align with your life goals.
+            </p>
+            <Link href="/contact">
+              <Button className="h-14 px-10 text-lg bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-bold shadow-xl transition-all hover:scale-105 relative z-10">
+                Contact Us
+                <ChevronRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+const features = [
+  {
+    icon: Target,
+    title: "Goal-Oriented Approach",
+    description: "We don't chase arbitrary returns. We map distinct financial strategies to your specific life milestones and aspirations."
+  },
+  {
+    icon: ShieldCheck,
+    title: "Risk-Aware Structuring",
+    description: "Understanding that all investments carry risk, we focus on appropriate asset allocation that matches your distinct risk appetite."
+  },
+  {
+    icon: BarChart3,
+    title: "Long-Term Discipline",
+    description: "Wealth is rarely built overnight. We encourage patient, disciplined investing to navigate through market cycles effectively."
+  }
+];

@@ -1,0 +1,12 @@
+<?php
+// ─── Database Credentials ────────────────────────────────────────────────────
+// Copy this file to db_config.php and fill in your real values.
+// On cPanel, place at: /home4/wmdtest/secure_config/db_config.php
+
+$db_host     = 'localhost';
+$db_name     = 'cpanelusername_dbname';
+$db_username = 'cpanelusername_dbuser';
+$db_password = 'your_strong_password_here';
+
+// Auth token secret — change this to a long random string in production
+$auth_secret = 'CHANGE_ME_TO_A_RANDOM_STRING';

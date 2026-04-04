@@ -1,0 +1,17 @@
+# ACE WEALTH — Test Environment
+# Block all crawlers on test.webmydrive.com
+# When moving to acewealth.co.in, replace with production version below.
+#
+# ── TEST (current) ──────────────────────────────────────────────────
+User-agent: *
+Disallow: /
+
+# ── PRODUCTION (use on acewealth.co.in) ─────────────────────────────
+# User-agent: *
+# Allow: /
+# Disallow: /admin
+# Disallow: /login
+# Disallow: /api/
+# Disallow: /downloads/*.pdf
+#
+# Sitemap: https://acewealth.co.in/sitemap.xml
