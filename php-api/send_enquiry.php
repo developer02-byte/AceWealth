@@ -66,35 +66,44 @@ if (strlen($message) > 5000) {
 try {
     $mail = new PHPMailer(true);
 
-    // Read .env file for environment variables
-    $envFile = __DIR__ . '/../.env';
+    // Read .env file for environment variables (Support local and server paths)
+    $possibleEnvPaths = [
+        __DIR__ . '/../.env', // Local dev
+        $_SERVER['DOCUMENT_ROOT'] . '/../.env', // cPanel server root (/home/username/)
+        '/home4/wmdtest/.env' // Hardcoded fallback for strictly given username
+    ];
+    
     $env = [];
-    if (file_exists($envFile)) {
-        $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ($lines as $line) {
-            if (strpos(trim($line), '#') === 0) continue;
-            if (strpos($line, '=') !== false) {
-                list($key, $val) = explode('=', $line, 2);
-                $env[trim($key)] = trim($val);
+    foreach ($possibleEnvPaths as $envFile) {
+        if (file_exists($envFile)) {
+            $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            foreach ($lines as $line) {
+                if (strpos(trim($line), '#') === 0) continue;
+                if (strpos($line, '=') !== false) {
+                    list($key, $val) = explode('=', $line, 2);
+                    $env[trim($key)] = trim(trim($val), '"\'');
+                }
             }
+            break; // Stop once we find and load a valid .env
         }
     }
     
-    $emailUser = $env['EMAIL_USER'] ?? '';
-    $emailPass = $env['EMAIL_PASS'] ?? '';
+    $emailUser = $env['EMAIL_USER'] ?? (defined('SMTP_USERNAME') ? SMTP_USERNAME : '');
+    $emailPass = $env['EMAIL_PASS'] ?? (defined('SMTP_PASSWORD') ? SMTP_PASSWORD : '');
+    $emailPass = str_replace(' ', '', $emailPass); // Strip spaces for Gmail App Passwords
 
-    // Server settings configured for Gmail SMTP
+    // Server settings configured for Gmail SMTP natively or fallback to constants
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
+    $mail->Host       = defined('SMTP_HOST') ? SMTP_HOST : 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = $emailUser;
     $mail->Password   = $emailPass;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // secure: true
-    $mail->Port       = 465;
+    $mail->SMTPSecure = defined('SMTP_ENCRYPTION') ? SMTP_ENCRYPTION : PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port       = defined('SMTP_PORT') ? SMTP_PORT : 465;
 
-    // Sender & Recipient
-    $mail->setFrom($emailUser, 'Contact Test');
-    $mail->addAddress($emailUser, 'Contact Test');
+    // Sender & Recipient fallback to constants defined internally
+    $mail->setFrom($emailUser, defined('MAIL_FROM_NAME') ? MAIL_FROM_NAME : 'Contact Test');
+    $mail->addAddress($emailUser, defined('MAIL_TO_NAME') ? MAIL_TO_NAME : 'Contact Test');
 
     // Email content
     $mail->isHTML(false);
@@ -109,6 +118,6 @@ try {
 } catch (Exception $e) {
     error_log("Email sending failed: {$mail->ErrorInfo}");
     http_response_code(500);
-    echo json_encode(["success" => false, "message" => "Could not send message. Please try again later."]);
+    echo json_encode(["success" => false, "message" => "Debug User: " . (empty($emailUser) ? 'Empty' : 'Set') . " Pass: " . (empty($emailPass) ? 'Empty' : 'Set')]);
 }
 ?>
