@@ -251,3 +251,10 @@
 ### Change:
 * Before: "Contact form email sending not configured for self-email testing"
 * After: "Configured contact form to send email from and to same email ID for testing"
+
+## Page: Contact Form / Email Configuration
+
+### Change:
+
+* Before: "Email configured with developer testing email (developer02@technodoc.in)"
+* After: "Email updated to client email (invest@acewealth.co.in) for production use"
