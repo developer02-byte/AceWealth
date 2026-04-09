@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import logoPng from "@assets/Logo.png";
 import { useTheme, Theme } from "@/lib/themeContext";
 
-const BASE = "/acewealth/demo/4";
+const BASE = "";
 
 const kycForms = [
   { name: "CKYC Form - Individual", file: "ckyc-individual-form.pdf" },

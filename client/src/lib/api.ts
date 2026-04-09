@@ -1,7 +1,7 @@
 // Central API client — PHP + MySQL backend
-// All endpoints resolve to /acewealth/demo/4/api/*.php
+// All endpoints resolve to /backend/*.php
 
-const API_BASE = '/acewealth/demo/4/api';
+const API_BASE = '/backend';
 
 // ─── Internal Request Helper ──────────────────────────────────────────────────
 async function request<T>(

@@ -36,7 +36,7 @@ function PageLoader() {
 
 function Router() {
   return (
-    <WouterRouter base="/acewealth/demo/4">
+    <WouterRouter base="">
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">

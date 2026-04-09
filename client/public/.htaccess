@@ -1,10 +1,17 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /acewealth/demo/4/
+
+# Remove trailing slash if not a directory
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+RewriteBase /
 RewriteRule ^index.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /acewealth/demo/4/index.html [L]
+RewriteCond %{REQUEST_URI} !^/backend/
+RewriteCond %{REQUEST_URI} !^/uploads/
+RewriteRule . /index.html [L]
 </IfModule>
 
 # Force HTTPS

@@ -60,11 +60,11 @@ export function Footer() {
             <h4 className="text-white font-display font-semibold mb-6">Downloads</h4>
             <ul className="space-y-4 text-sm text-slate-400">
               <li><Link href="/commission-disclosure" className="hover:text-[#FBAB1C] transition-colors">Commission Disclosure</Link></li>
-              <li><a href="/acewealth/demo/4/downloads/ckyc-individual-form.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />CKYC - Individual</a></li>
-              <li><a href="/acewealth/demo/4/downloads/ckyc-non-individual-form.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />CKYC - Non-Individual</a></li>
-              <li><a href="/acewealth/demo/4/downloads/kyc-fatca-form-cams.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />KYC FATCA (CAMS)</a></li>
-              <li><a href="/acewealth/demo/4/downloads/kyc-fatca-form-kfintech.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />KYC FATCA (KFintech)</a></li>
-              <li><a href="/acewealth/demo/4/downloads/transaction-slip-arn-51565.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />Txn Slip - ARN 51565</a></li>
+              <li><a href="/downloads/ckyc-individual-form.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />CKYC - Individual</a></li>
+              <li><a href="/downloads/ckyc-non-individual-form.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />CKYC - Non-Individual</a></li>
+              <li><a href="/downloads/kyc-fatca-form-cams.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />KYC FATCA (CAMS)</a></li>
+              <li><a href="/downloads/kyc-fatca-form-kfintech.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />KYC FATCA (KFintech)</a></li>
+              <li><a href="/downloads/transaction-slip-arn-51565.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors flex items-center gap-1.5"><Download className="w-3.5 h-3.5" />Txn Slip - ARN 51565</a></li>
             </ul>
           </div>
 

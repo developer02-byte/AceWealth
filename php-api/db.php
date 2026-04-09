@@ -4,7 +4,7 @@
 // Server path:  /home4/wmdtest/secure_config/db_config.php
 // Local path:   php-api/secure_config/db_config.php (dev fallback)
 
-$secure_config = '/home4/wmdtest/secure_config/db_config.php';
+$secure_config = '/home4/acewealthadmin/secure_config/db_config.php';
 $local_config  = __DIR__ . '/secure_config/db_config.php';
 
 if (file_exists($secure_config)) {

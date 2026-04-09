@@ -51,9 +51,9 @@ if (!move_uploaded_file($file['tmp_name'], $uploadPath)) {
 }
 
 // Return the public URL path (relative to site root)
-// Assumes deployment in /acewealth/demo/4/
+// Assumes deployment in root
 json_ok([
     'success' => true,
-    'url'     => '/acewealth/demo/4/uploads/' . $filename,
+    'url'     => '/uploads/' . $filename,
     'filename' => $filename,
 ]);

@@ -49,7 +49,7 @@ const mockPhpApiPlugin = () => ({
 });
 
 export default defineConfig({
-  base: '/acewealth/demo/4/',
+  base: '/',
   plugins: [react(), mockPhpApiPlugin()],
   resolve: {
     alias: {

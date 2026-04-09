@@ -4,7 +4,7 @@
 // Server path:  /home4/wmdtest/secure_config/mail_config.php
 // Local path:   php-api/secure_config/mail_config.php (dev fallback)
 
-$secure_mail = '/home4/wmdtest/secure_config/mail_config.php';
+$secure_mail = '/home4/acewealthadmin/secure_config/mail_config.php';
 $local_mail  = __DIR__ . '/secure_config/mail_config.php';
 
 if (file_exists($secure_mail)) {
