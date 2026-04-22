@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { PieChart, TrendingUp, Shield, Landmark, Globe, Building2, BarChart3, Heart, ChevronRight, ChevronDown } from "lucide-react";
+import { PieChart, TrendingUp, Shield, Landmark, Globe, Building2, Heart, ChevronRight, ChevronDown } from "lucide-react";
 
 interface Product {
   icon: typeof PieChart;
@@ -24,18 +24,6 @@ const products: Product[] = [
       "Affordability — accessible to very small investors with relatively small sums",
       "Liquidity — recover the market value of investments from the mutual fund itself",
       "Strong Regulatory Framework — SEBI has laid down strict checks and balances",
-    ],
-  },
-  {
-    icon: BarChart3,
-    title: "Specialized Investment Funds (SIF)",
-    subtitle: "Bridging mutual funds and PMS/AIF",
-    description: "A Specialized Investment Fund (SIF) is a novel financial product introduced by SEBI to bridge the gap between simpler options like mutual funds, and more complex products like PMS and AIFs. SIFs offer investors a regulated way to access professionally managed, strategy-driven investments with greater freedom than conventional mutual funds.",
-    highlights: [
-      "Sophisticated strategies — including naked short positions and dynamic asset allocation",
-      "Target Investors — designed for high net-worth individuals (HNIs)",
-      "Minimum Investment — ₹10 Lakh",
-      "SEBI Regulated — under Mutual Fund Regulations with special provisions",
     ],
   },
   {

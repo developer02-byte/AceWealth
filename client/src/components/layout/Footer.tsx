@@ -104,6 +104,22 @@ export function Footer() {
 
         </div>
 
+        {/* Disclosures */}
+        <div className="border-t border-white/5 pt-8 pb-8 mb-8">
+          <h4 className="text-white font-display font-semibold text-xs uppercase tracking-widest mb-5">Disclosures</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-400 leading-relaxed">
+            <div className="space-y-1">
+              <p className="text-slate-300 font-semibold mb-2">Mutual Fund Certification Details</p>
+              <p>ARN NUMBER – 51656, ARN Validity – 04-July-2027</p>
+              <p>EUIN NUMBER – E026367, EUIN Validity – 04-July-2027</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-slate-300 font-semibold mb-2">PMS Certification Details</p>
+              <p>NISM – 13 Validity – 20-October-2029 (PMS)</p>
+            </div>
+          </div>
+        </div>
+
         {/* Mandatory AMFI Disclaimer */}
         <div className="amfi-disclaimer rounded-xl p-6 mb-8 flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
           <ShieldAlert className="w-8 h-8 shrink-0 amfi-disclaimer-icon" />
