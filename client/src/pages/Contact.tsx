@@ -78,7 +78,7 @@ export default function Contact() {
                     <p className="text-slate-400">
                       <a href="https://www.google.com/maps/place/Ace+Wealth/@23.0108471,72.5284587,17z/data=!3m1!4b1!4m6!3m5!1s0x395e84dc3fffffff:0xe97e3dc978557a7a!8m2!3d23.0108422!4d72.5310336!16s%2Fg%2F1tdr6l3c?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="hover:text-[#FBAB1C] transition-colors text-left block">
                         10th Floor, AceWealth, 1031-33<br />
-                        Mirchi Road, nr. Shyamal Cross Road<br />
+                        Mirchi Road, Nr. Shyamal Cross Road<br />
                         Rajmani Society, Satellite<br />
                         Ahmedabad, Gujarat 380015
                       </a>
